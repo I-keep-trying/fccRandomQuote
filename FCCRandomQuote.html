@@ -1,154 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+  <script>
+  // we load the Twitter widgets script before we define our other set of onClick functions
+  // we can then invoke it manually later to draw the button
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));
+
+  </script>
+
+  <script>
+    $(document).ready(function() {
+
+      $("#getRandomQuote").on("click", function() {
+        var quotesList = [{
+            "wiseQuote": "I think I am, therefore I am. I think.",
+            "whoSaidIt": "George Carlin"
+          },
+          {
+            "wiseQuote": "People who see life as anything more than pure entertainment are missing the point.",
+            "whoSaidIt": "George Carlin"
+          },
+          {
+            "wiseQuote": "A learning experience is one of those things that say, You know that thing you just did? Don't do that.",
+            "whoSaidIt": "Douglas Adams"
+          },
+          {
+            "wiseQuote": "We are stuck with technology when what we really want is just stuff that works.",
+            "whoSaidIt": "Douglas Adams"
+          },
+          {
+            "wiseQuote": "Women who seek to be equal with men lack ambition.",
+            "whoSaidIt": "Timothy Leary"
+          },
+          {
+            "wiseQuote": "Think for yourself and question authority.",
+            "whoSaidIt": "Timothy Leary"
+          },
+          {
+            "wiseQuote": "Each religion has got their own way of making you feel like a victim.",
+            "whoSaidIt": "Timothy Leary"
+          },
+          {
+            "wiseQuote": "You're only as young as the last time you changed your mind.",
+            "whoSaidIt": "Timothy Leary"
+          },
+          {
+            "wiseQuote": "Why not?",
+            "whoSaidIt": "Timothy Leary"
+          },
+          {
+            "wiseQuote": "You must do the thing you think you cannot do.",
+            "whoSaidIt": "Eleanor Roosevelt"
+          },
+          {
+            "wiseQuote": "Where knowledge is a duty, ignorance is a crime.",
+            "whoSaidIt": "Thomas Paine"
+          },
+          {
+            "wiseQuote": "It is from the Bible that man has learned cruelty, rape, and murder; for the belief of a cruel God makes a cruel man.",
+            "whoSaidIt": "Thomas Paine"
+          },
+          {
+            "wiseQuote": "Reason obeys itself; and Ignorance submits to whatever is dictated to it.",
+            "whoSaidIt": "Thomas Paine"
+          },
+          {
+            "wiseQuote": "My whole religion is this: Do every duty, and expect no reward for it, either here or hereafter.",
+            "whoSaidIt": "Bertrand Russell"
+          },
+          {
+            "wiseQuote": "Sex alleviates tension. Love causes it.",
+            "whoSaidIt": "Woody Allen"
+          },
+          {
+            "wiseQuote": "I don't believe in an afterlife, although I am bringing a change of underwear.",
+            "whoSaidIt": "Woody Allen"
+          },
+          {
+            "wiseQuote": "I don't work out. If God had wanted us to bend over, he would have put diamonds on the floor.",
+            "whoSaidIt": "Joan Rivers"
+          },
+          {
+            "wiseQuote": "A man can sleep around, no questions asked, but if a woman makes nineteen or twenty mistakes she's a tramp.",
+            "whoSaidIt": "Joan Rivers"
+          }
+
+        ];
+
+        var n = quotesList.length;
+
+        function getRandom(max) {
+          var randomNum = Math.floor(Math.random() * (max - 1)) + 1;
+          return randomNum;
+        };
+        var randomQuoteNum = getRandom(n);
+        var printOut = "<div class=\"jumbotron row text-center quote\"><h2>" + quotesList[randomQuoteNum].wiseQuote + "</h2><br/>";
+        printOut += "<footer><cite><h3>" + " -" + quotesList[randomQuoteNum].whoSaidIt + "</h3></cite></footer></div>";
+
+        printOut += "<div class=\"row text-center\"><a href=\"https://twitter.com/share\" data-text=\"" + quotesList[randomQuoteNum].wiseQuote;
+        printOut += " -" + quotesList[randomQuoteNum].whoSaidIt + "\" class=\"twitter-share-button\" data-size=\"large\"></a></div>";
+
+        $(".quote").html(printOut);
+
+        // this is where we call the Twitter widget rendering function to draw the button
+        twttr.widgets.load($(".quote"));
+
+      });
+
+    });
+  </script>
+  <title>Twitter share test</title>
 </head>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+<body style="background-color:#ffbf00">
 
-  return t;
-}(document, "script", "twitter-wjs"));</script> -->
-
-
-<script>
-  $(document).ready(function() {
-    $("#getRandomQuote").on("click", function(){
-var quotesList = [
-  {
-    "wiseQuote": "I think I am, therefore I am. I think.",
-    "whoSaidIt": "George Carlin"
-  },
-  {
-    "wiseQuote": "People who see life as anything more than pure entertainment are missing the point.",
-    "whoSaidIt": "George Carlin"
-  },
-  {
-    "wiseQuote": "A learning experience is one of those things that say, You know that thing you just did? Don't do that.",
-    "whoSaidIt": "Douglas Adams"
-  },
-  {
-    "wiseQuote": "We are stuck with technology when what we really want is just stuff that works.",
-    "whoSaidIt": "Douglas Adams"
-  },
-  {
-    "wiseQuote": "Women who seek to be equal with men lack ambition.",
-    "whoSaidIt": "Timothy Leary"
-  },
-  {
-    "wiseQuote": "Think for yourself and question authority.",
-    "whoSaidIt": "Timothy Leary"
-  },
-  {
-    "wiseQuote": "Each religion has got their own way of making you feel like a victim.",
-    "whoSaidIt": "Timothy Leary"
-  },
-  {
-    "wiseQuote": "You're only as young as the last time you changed your mind.",
-    "whoSaidIt": "Timothy Leary"
-  },
-  {
-    "wiseQuote": "Why not?",
-    "whoSaidIt": "Timothy Leary"
-  },
-  {
-    "wiseQuote": "You must do the thing you think you cannot do.",
-    "whoSaidIt": "Eleanor Roosevelt"
-  },
-  {
-    "wiseQuote": "Where knowledge is a duty, ignorance is a crime.",
-    "whoSaidIt": "Thomas Paine"
-  },
-  {
-    "wiseQuote": "It is from the Bible that man has learned cruelty, rape, and murder; for the belief of a cruel God makes a cruel man.",
-    "whoSaidIt": "Thomas Paine"
-  },
-  {
-    "wiseQuote": "Reason obeys itself; and Ignorance submits to whatever is dictated to it.",
-    "whoSaidIt": "Thomas Paine"
-  },
-  {
-    "wiseQuote": "My whole religion is this: Do every duty, and expect no reward for it, either here or hereafter.",
-    "whoSaidIt": "Bertrand Russell"
-  },
-  {
-    "wiseQuote": "Sex alleviates tension. Love causes it.",
-    "whoSaidIt": "Woody Allen"
-  },
-  {
-    "wiseQuote": "I don't believe in an afterlife, although I am bringing a change of underwear.",
-    "whoSaidIt": "Woody Allen"
-  },
-  {
-    "wiseQuote": "I don't work out. If God had wanted us to bend over, he would have put diamonds on the floor.",
-    "whoSaidIt": "Joan Rivers"
-  },
-  {
-    "wiseQuote": "A man can sleep around, no questions asked, but if a woman makes nineteen or twenty mistakes she's a tramp.",
-    "whoSaidIt": "Joan Rivers"
-  }
-
-];
-
-var n = quotesList.length;
-
-function getRandom(max) {
-  var randomNum = Math.floor(Math.random() * (max-1)) + 1;
-  return randomNum;
-};
-var randomQuoteNum = getRandom(n);
-var printOut = "<div class=\"jumbotron row text-center quote\"><h2>" + quotesList[randomQuoteNum].wiseQuote + "</h2><br></br>";
-printOut += "<footer><cite><h3>" + " -" + quotesList[randomQuoteNum].whoSaidIt + "</h3></cite></footer></div>";
-
-printOut += "<div class=\"row text-center\"><a href=\"https://twitter.com/intent/tweet?text=" + quotesList[randomQuoteNum].wiseQuote;
-printOut += " -" + quotesList[randomQuoteNum].whoSaidIt + "\" class=\"twitter-share-button\" data-size=\"small\"><img style=\"width:5%\" src=\"https://twitterdev.github.io/images/bird.png\"></a></div>";
-
-$(".quote").html(printOut);
-
-});
-});
- </script>
-
- <body style="background-color:#ffbf00">
-<div class="container-fluid">
-  <br>
-</br>
-  <div class = "row text-center">
-    <h1>Random Quote Machine</h1>
-  </div>
-  <br>
-</br>
-<div class = "jumbotron row text-center quote">
-  <h2>Click the button for a quote.</h2>
-</div>
-<div class="row text-center">
-  <button id = "getRandomQuote" class = "btn btn-primary">
+  <div class="container-fluid">
+    <br/>
+    <div class="row text-center">
+      <h1>Random Quote Machine</h1>
+    </div>
+    <br/>
+    <div class="jumbotron row text-center quote">
+      <h2>Click the button for a quote.</h2>
+    </div>
+    <div class="row text-center">
+      <button id="getRandomQuote" class="btn btn-primary">
     Get Quote
   </button>
-</div>
-<div class = "row text-center">
-  <div id="container" class = "col-xs-12 tweet">
+    </div>
+    <div class="row text-center">
+      <div id="container" class="col-xs-12 tweet">
+      </div>
+    </div>
+
   </div>
-</div>
 </body>
 
 </html>
