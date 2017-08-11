@@ -1,0 +1,179 @@
+#myDIV {
+ background-color: #ffbf00;
+ -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+ -webkit-animation: mymove 60s infinite;
+  animation: mymove 60s infinite;
+}
+
+@-webkit-keyframes mymove {
+0% {background-color: #ffbf00;}
+0% {background-color: opacity: 0;}
+0% {background-color: opacity: 1;}
+10% {background-color: #e60000;}
+10% {background-color: opacity: 0;}
+10% {background-color: opacity: 1;}
+20% {background-color: #660033;}
+20% {background-color: opacity: 0;}
+20% {background-color: opacity: 1;}
+30% {background-color: #e60073;}
+30% {background-color: opacity: 0;}
+30% {background-color: opacity: 1;}
+40% {background-color: #400080;}
+40% {background-color: opacity: 0;}
+40% {background-color: opacity: 1;}
+50% {background-color: #002b80;}
+50% {background-color: opacity: 0;}
+50% {background-color: opacity: 1;}
+60% {background-color: #009999;}
+60% {background-color: opacity: 0;}
+60% {background-color: opacity: 1;}
+70% {background-color: #336600;}
+70% {background-color: opacity: 0;}
+70% {background-color: opacity: 1;}
+80% {background-color: #99ff33;}
+80% {background-color: opacity: 0;}
+80% {background-color: opacity: 1;}
+90% {background-color: #ffbf00;}
+90% {background-color: opacity: 0;}
+90% {background-color: opacity: 1;}
+100% {background-color: #ffbf00;}
+100% {background-color: opacity: 0;}
+100% {background-color: opacity: 1;}
+}
+
+@keyframes mymove {
+0% {background-color: #ffbf00;}
+0% {background-color: opacity: 0;}
+0% {background-color: opacity: 1;}
+10% {background-color: #e60000;}
+10% {background-color: opacity: 0;}
+10% {background-color: opacity: 1;}
+20% {background-color: #660033;}
+20% {background-color: opacity: 0;}
+20% {background-color: opacity: 1;}
+30% {background-color: #e60073;}
+30% {background-color: opacity: 0;}
+30% {background-color: opacity: 1;}
+40% {background-color: #400080;}
+40% {background-color: opacity: 0;}
+40% {background-color: opacity: 1;}
+50% {background-color: #002b80;}
+50% {background-color: opacity: 0;}
+50% {background-color: opacity: 1;}
+60% {background-color: #009999;}
+60% {background-color: opacity: 0;}
+60% {background-color: opacity: 1;}
+70% {background-color: #336600;}
+70% {background-color: opacity: 0;}
+70% {background-color: opacity: 1;}
+80% {background-color: #99ff33;}
+80% {background-color: opacity: 0;}
+80% {background-color: opacity: 1;}
+90% {background-color: #ffbf00;}
+90% {background-color: opacity: 0;}
+90% {background-color: opacity: 1;}
+100% {background-color: #ffbf00;}
+100% {background-color: opacity: 0;}
+100% {background-color: opacity: 1;}
+}
+
+@keyframes fadein
+{
+  0%{opacity: 0}
+  100%{opacity:1}
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+q:before {
+    content: open-quote;
+}
+
+q:after {
+    content: close-quote;
+}
+ 
+h1 {
+color: #fff;
+text-shadow: 0px 0px 10px #fff;
+font-size: calc(0.5rem + 5.5vmin);
+}
+
+h2, h3 {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode:forwards;
+  font-size: calc(0.5rem + 3.5vmin);
+}
+
+.title {
+height: 200px;
+vertical-align: middle;
+}
+
+.jumbo {
+height: 300px;
+vertical-align: middle;
+background-color: rgba(255,255,255,.85);
+}
+
+button {
+	-webkit-appearance: none;
+}
+
+.btn {
+-webkit-transition-duration: 0.4s; 
+transition-duration: 0.4s;
+font-size: calc(0.5rem + 3vmin);
+border-radius: 8px;
+color: rgba(0,0,0,.5);
+background-color: rgba(255,255,255,.5);
+border-color: rgba(241,242,242,0);
+}
+
+.btn-primary {
+-webkit-transition-duration: 0.4s; 
+transition-duration: 0.4s;
+font-size: calc(0.5rem + 3vmin);
+border-radius: 8px;
+color: rgba(0,0,0,.5);
+background-color: rgba(255,255,255,.5);
+border-color: rgba(241,242,242,0);
+}
+
+.btn:hover {
+font-size: calc(0.5rem + 3vmin);
+border-radius: 8px;
+background-color: rgba(0,0,0,.5);
+border-color: rgba(0,0,0,.5);
+color: rgba(255,255,255,.5);
+}
+
+.btn-primary:hover {
+font-size: calc(0.5rem + 3vmin);
+border-radius: 8px;
+background-color: rgba(0,0,0,.5);
+border-color: rgba(0,0,0,.5);
+color: rgba(255,255,255,.5);
+}
+
+table {
+table-layout: auto;
+width: 100%;
+}
+
+tr {
+border: none;
+text-align: center;
+}
+
+th {
+border: none;
+text-align: center;
+padding: 50px;
+}
